@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drew Starkey</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #4b2e1f, #d2b48c);
+      color: #2b1b12;
+    }
+
+    /* ===== COVER ===== */
+     .cover-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeDown 1.5s ease;
+}
+
+.cover-photo {
+  width: 260px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.45);
+  animation: fadeUp 1.8s ease;
+}
+
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .cover-text {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      animation: fadeDown 1.5s ease;
+    }
+
+    .cover-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .cover-text p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 70px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      width: 80px;
+      height: 3px;
+      background: #4b2e1f;
+      display: block;
+      margin: 10px auto 0;
+    }
+
+    .content {
+      background: rgba(255,255,255,0.7);
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 30px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .biodata p, .funfact li {
+      margin-bottom: 15px;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .biodata span {
+      font-weight: 600;
+    }
+
+    .funfact ul {
+      padding-left: 20px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    /* ===== ANIMATION ===== */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+/* ===== PHOTO SECTION ===== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+  animation: fadeUp 1.5s ease;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(75, 46, 31, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #d2b48c;
+  left: 0;
+  bottom: -5px;
+  transition: 0.4s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .cover-text h1 {
+        font-size: 2.2rem;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+    }
+  </style>
+  </head>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">Drew Starkey</div>
+  <ul class="nav-links">
+    <li><a href="#photos">Gallery</a></li>
+    <li><a href="#biodata">Biodata</a></li>
+    <li><a href="#funfact">Fun Facts</a></li>
+  </ul>
+</nav>
+
+  <!-- COVER -->
+  <div class="cover">
+  <div class="cover-content">
+    <img class="cover-photo" src="drewstarkey6.jpg" alt="drewstarkey6.jpg">
+    
+    <div class="cover-text">
+      <h1>DREW STARKEY</h1>
+      <p>American Actor & Rising Star</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOTO AWAL -->
+<section id="photos">
+  <h2>Gallery</h2>
+  <div class="photo-grid">
+    <img src="drewstarkey.jpg" alt="drewstarkey.jpg">
+    <img src="drewstarkey2.jpg" alt="drewstarkey2.jpg">
+    <img src="drewstarkey5.jpg" alt="drewstarkey5.jpg">
+      </div>
+</section>
+
+  <!-- BIODATA -->
+  <section id="biodata">
+    <h2>Biodata</h2>
+    <div class="content biodata">
+      <p><span>Nama Lengkap:</span> Joseph Andrew Starkey</p>
+      <p><span>Nama Panggung:</span> Drew Starkey</p>
+      <p><span>Tanggal Lahir:</span> 4 November 1993</p>
+      <p><span>Tempat Lahir:</span> Hickory, North Carolina, Amerika Serikat</p>
+      <p><span>Kebangsaan:</span> Amerika Serikat</p>
+      <p><span>Pekerjaan:</span> Aktor</p>
+
+      <p>
+        Drew Starkey dikenal sebagai aktor Amerika yang mulai menarik perhatian publik
+        melalui perannya dalam berbagai serial televisi dan film. Ia tumbuh dan besar
+        di North Carolina, di mana ketertarikannya terhadap seni peran mulai berkembang
+        sejak usia muda. Drew kemudian melanjutkan pendidikannya di bidang seni dan
+        akting, yang membantunya membangun dasar kuat dalam dunia hiburan.
+      </p>
+
+      <p>
+        Namanya semakin dikenal luas setelah memerankan karakter Rafe Cameron
+        dalam serial Netflix <i>Outer Banks</i>. Perannya tersebut menunjukkan
+        kemampuan akting emosional yang kompleks, sehingga membuatnya dianggap
+        sebagai salah satu aktor muda berbakat dengan potensi besar di industri film
+        dan televisi.
+      </p>
+    </div>
+  </section>
+
+  <!-- FUN FACT -->
+  <section id="funfact">
+    <h2>Fun Facts</h2>
+    <div class="content funfact">
+      <ul>
+        <li>
+          Drew Starkey berasal dari keluarga sederhana dan memiliki latar belakang
+          pendidikan yang cukup kuat sebelum terjun sepenuhnya ke dunia akting.
+        </li>
+        <li>
+          Ia dikenal sebagai pribadi yang cukup tertutup dan jarang membagikan
+          kehidupan pribadinya secara detail di media sosial.
+        </li>
+        <li>
+          Drew memiliki ketertarikan pada seni visual dan fotografi, yang sering
+          memengaruhi cara ia memahami karakter yang diperankannya.
+        </li>
+        <li>
+          Sebelum mendapatkan peran besar, Drew telah membintangi berbagai proyek
+          kecil yang membentuk pengalaman aktingnya secara bertahap.
+        </li>
+        <li>
+          Gaya akting Drew sering dipuji karena terlihat natural dan emosional,
+          terutama saat memerankan karakter dengan konflik batin yang mendalam.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © Created by Ghaniya Chesya
+  </footer>
+
+</body>
+</html>
